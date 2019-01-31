@@ -27,4 +27,15 @@ YT_API_KEY= ./deploy.sh
 [https://europe-west1-func-230310.cloudfunctions.net/stats](https://europe-west1-func-230310.cloudfunctions.net/stats)
 
 ```
+GitHub Followers: 188
+Twitter Followers: 362
+YouTube Subscribers: 2444
+YouTube Views: 43804
+pliutau.com users (30 days): 2397
+pliutau.com top 5 pages (30 days):
+172 | /
+217 | /google-cloud-functions-in-go/
+158 | /separate_unit_integration_tests/
+141 | /working-with-db-nulls/
+596 | /working-with-db-time-in-go/
 ```

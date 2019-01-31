@@ -2,17 +2,29 @@
 
 Google Cloud Function to display various social stats (pretty much specific for me).
 
-- Google Analytics: visitors (1 day, 1 week, 1 month), top 5 pages (1 day, 1 week, 1 month)
-- YouTube channel: delta subscribers (1 day, 1 week, 1 month), total count, top 5 videos (1 day, 1 week, 1 month)
-- GitHub: total count
-- Twitter: total count
+- Google Analytics: users and top 5 pages (last 30 days)
+- YouTube channel: subscribers count
+- GitHub: followers count
+- Twitter: followers count
 
 ## Requirements
 
-1. Enable [Google Analytics Reporting API](https://console.developers.google.com/apis/library/analyticsreporting.googleapis.com)
-2. Create YouTube API Key
-3. Enable [YouTube Analytics API](https://console.developers.google.com/apis/library/youtubeanalytics.googleapis.com)
-4. Create Service Account and download json key
-5. Add Service Account to Google Analytics
+1. Enable [Google Analytics Reporting API](https://console.developers.google.com/apis/library/analyticsreporting.googleapis.com).
+2. Copy GCF service account email and add it in Google Analytics with Read & Analyze permission.
+3. Enable [YouTube Data API](https://console.cloud.google.com/apis/api/youtube.googleapis.com)
+4. Create YouTube API Key.
 
 p.s. We can get GitHub / Twitter followers count without API keys.
+
+## Deploy
+
+```bash
+YT_API_KEY= ./deploy.sh
+```
+
+## Response
+
+[https://europe-west1-func-230310.cloudfunctions.net/stats](https://europe-west1-func-230310.cloudfunctions.net/stats)
+
+```
+```

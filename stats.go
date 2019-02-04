@@ -10,6 +10,7 @@ type tplData struct {
 	TwitterFollowers   int
 	YouTubeSubscribers string
 	YouTubeViews       string
+	YouTubeTop5Videos  *youtubeVideos
 	GAUsers30Days      string
 	GAPages30Days      map[string]string
 }
@@ -37,11 +38,19 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	youtubeVideos, err := getYouTubeTop5Videos()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+		return
+	}
+
 	data := tplData{
 		GitHubFollowers:    githubFollowers,
 		TwitterFollowers:   twitterFollowers,
 		YouTubeSubscribers: youtubeStats.Items[0].Statistics.Subscribers,
 		YouTubeViews:       youtubeStats.Items[0].Statistics.Views,
+		YouTubeTop5Videos:  youtubeVideos,
 		GAPages30Days:      make(map[string]string),
 	}
 
@@ -64,6 +73,7 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(err.Error()))
 		return
 	}
+
 	for _, report := range gaPages.Reports {
 		rows := report.Data.Rows
 		for _, row := range rows {

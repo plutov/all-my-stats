@@ -28,14 +28,20 @@ YT_API_KEY= ./deploy.sh
 
 ```
 GitHub Followers: 188
-Twitter Followers: 362
-YouTube Subscribers: 2444
-YouTube Views: 43804
-pliutau.com users (30 days): 2397
+Twitter Followers: 364
+YouTube Subscribers: 2457
+YouTube Views: 44332
+YouTube Top 5 videos:
+8145 | packagemain #0: Building gRPC blockchain Server &amp; Client in Go
+4730 | packagemain #12: Microservices with go-kit. Part 1
+4551 | packagemain #4: Image recognition in Go using TensorFlow
+4240 | packagemain #11: Getting started with OAuth2 in Go
+4226 | packagemain #5: Face Detection in Go using OpenCV and MachineBox
+pliutau.com users (30 days): 2353
 pliutau.com top 5 pages (30 days):
-172 | /
-217 | /google-cloud-functions-in-go/
-158 | /separate_unit_integration_tests/
+174 | /
+232 | /google-cloud-functions-in-go/
+152 | /separate_unit_integration_tests/
 141 | /working-with-db-nulls/
-596 | /working-with-db-time-in-go/
+594 | /working-with-db-time-in-go/
 ```

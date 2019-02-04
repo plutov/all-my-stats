@@ -3,9 +3,10 @@
 Google Cloud Function to display various social stats (pretty much specific for me).
 
 - Google Analytics: users and top 5 pages (last 30 days)
-- YouTube channel: subscribers count
+- YouTube channel: subscribers count and top 5 videos (all time)
 - GitHub: followers count
 - Twitter: followers count
+- Stackoverflow: reputation
 
 ## Requirements
 
@@ -29,6 +30,7 @@ YT_API_KEY= ./deploy.sh
 ```
 GitHub Followers: 188
 Twitter Followers: 364
+Stackoverflow Reputation: 14275
 YouTube Subscribers: 2457
 YouTube Views: 44332
 YouTube Top 5 videos:

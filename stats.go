@@ -8,6 +8,7 @@ import (
 type tplData struct {
 	GitHubFollowers    int
 	TwitterFollowers   int
+	SOFReputation      int
 	YouTubeSubscribers string
 	YouTubeViews       string
 	YouTubeTop5Videos  *youtubeVideos
@@ -31,6 +32,13 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	sofReputation, err := getSOFReputation()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte(err.Error()))
+		return
+	}
+
 	youtubeStats, err := getYouTubeStats()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -45,26 +53,11 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := tplData{
-		GitHubFollowers:    githubFollowers,
-		TwitterFollowers:   twitterFollowers,
-		YouTubeSubscribers: youtubeStats.Items[0].Statistics.Subscribers,
-		YouTubeViews:       youtubeStats.Items[0].Statistics.Views,
-		YouTubeTop5Videos:  youtubeVideos,
-		GAPages30Days:      make(map[string]string),
-	}
-
 	gaStats, err := getGoogleAnalyticsStats()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 		return
-	}
-	for _, report := range gaStats.Reports {
-		rows := report.Data.Rows
-		for _, row := range rows {
-			data.GAUsers30Days = row.Metrics[0].Values[0]
-		}
 	}
 
 	gaPages, err := getGoogleAnalyticsPages()
@@ -72,6 +65,23 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 		return
+	}
+
+	data := tplData{
+		GitHubFollowers:    githubFollowers,
+		TwitterFollowers:   twitterFollowers,
+		SOFReputation:      sofReputation,
+		YouTubeSubscribers: youtubeStats.Items[0].Statistics.Subscribers,
+		YouTubeViews:       youtubeStats.Items[0].Statistics.Views,
+		YouTubeTop5Videos:  youtubeVideos,
+		GAPages30Days:      make(map[string]string),
+	}
+
+	for _, report := range gaStats.Reports {
+		rows := report.Data.Rows
+		for _, row := range rows {
+			data.GAUsers30Days = row.Metrics[0].Values[0]
+		}
 	}
 
 	for _, report := range gaPages.Reports {

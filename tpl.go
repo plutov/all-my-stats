@@ -2,6 +2,7 @@ package stats
 
 var tpl = `GitHub Followers: {{.GitHubFollowers}}
 Twitter Followers: {{.TwitterFollowers}}
+Stackoverflow Reputation: {{.SOFReputation}}
 YouTube Subscribers: {{.YouTubeSubscribers}}
 YouTube Views: {{.YouTubeViews}}
 YouTube Top 5 videos:

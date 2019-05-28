@@ -1,5 +1,6 @@
 #!/bin/bash
 
+CONFIGURATION_NAME="packagemain"
 PROJECT_NAME="func-230310"
 REGION="europe-west1"
 
@@ -9,6 +10,8 @@ GH_USER="plutov"
 TWITTER_USER="pliutau"
 GA_ID="115234933"
 SOF_ID="350294"
+
+gcloud config configurations activate $CONFIGURATION_NAME
 
 gcloud config set project $PROJECT_NAME
 gcloud config set functions/region $REGION

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFIGURATION_NAME="packagemain"
-PROJECT_NAME="func-230310"
+PROJECT_NAME="alexsandbox"
 REGION="europe-west1"
 
 YT_API_KEY=${YT_API_KEY:=""}

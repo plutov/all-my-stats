@@ -25,7 +25,7 @@ YT_API_KEY= ./deploy.sh
 
 ## Response
 
-[https://europe-west1-func-230310.cloudfunctions.net/stats](https://europe-west1-func-230310.cloudfunctions.net/stats)
+[https://europe-west1-alexsandbox.cloudfunctions.net/stats](https://europe-west1-alexsandbox.cloudfunctions.net/stats)
 
 ```
 GitHub Followers: 188
